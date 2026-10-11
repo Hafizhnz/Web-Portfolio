@@ -40,7 +40,7 @@
 
     /* Spacing */
     --section-padding: 120px 0;
-    --container-max: 1440px;
+    --container-max: min(98.5%, 1920px);
 
     /* Transitions */
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -113,7 +113,7 @@ img {
     max-width: var(--container-max);
     width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 56px);
+    padding: 0 clamp(12px, 1.4vw, 24px);
 }
 
 .section {
@@ -196,7 +196,7 @@ img {
     max-width: var(--container-max);
     width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 56px);
+    padding: 0 clamp(12px, 1.4vw, 24px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -431,7 +431,7 @@ img {
     width: 100%;
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 56px);
+    padding: 0 clamp(12px, 1.4vw, 24px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -570,6 +570,7 @@ img {
 /* Hero Visual - Orbit Animation */
 .hero-visual {
     flex-shrink: 0;
+    margin-right: 90px;
     opacity: 0;
     animation: fadeIn 1s ease 1s forwards;
 }
@@ -745,7 +746,7 @@ img {
 /* Hero Metrics */
 .hero-metrics {
     position: absolute;
-    right: 60px;
+    right: clamp(14px, 1.8vw, 36px);
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
@@ -840,8 +841,8 @@ img {
 
 .about-layout {
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 80px;
+    grid-template-columns: minmax(320px, 460px) 1fr;
+    gap: clamp(40px, 5vw, 80px);
     align-items: center;
 }
 
@@ -1035,7 +1036,7 @@ img {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
 }
 
