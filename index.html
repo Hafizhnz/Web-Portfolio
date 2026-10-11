@@ -1,404 +1,705 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="styles/responsive.css" />
-    <title>Hafizh Naufal Zain portfolio</title>
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="main-container">
-        <div class="nav">
-          <div class="logo">
-            <a href="/">Portfolio</a>
-          </div>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Hafizh Naufal Zain - System Analyst profesional dengan keahlian dalam analisis sistem, desain arsitektur, dan solusi teknologi.">
+    <meta name="keywords" content="System Analyst, Portfolio, Hafizh Naufal Zain, IT Professional">
+    <meta name="author" content="Hafizh Naufal Zain">
+    <title>Hafizh Naufal Zain | System Analyst</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
 
-          <nav>
-            <ul>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#portfolios">Portfolio</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#contact">Contact</a></li>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" id="navLogo">
+                <div class="logo-hex">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span>HNZ</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                <li class="nav-mobile-cv-item">
+                    <a href="cv.pdf" download class="nav-cv-btn mobile-cv-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span>Download CV</span>
+                    </a>
+                </li>
             </ul>
-          </nav>
-
-          <div class="burger">
-            <div class="line-1"></div>
-            <div class="line-2"></div>
-            <div class="line-3"></div>
-          </div>
+            <a href="cv.pdf" download class="nav-cv-btn desktop-cv-btn" id="navCvBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>Download CV</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
 
-        <section id="hero">
-          <div class="hero-left">
-            <h3 class="pre-title">My name is</h3>
-            <h1 class="hero-name">Hafizh <span>Naufal Z</span></h1>
-            <p>
-              I'm junior developer. Creative front-end developer. Passionate about UI/UX.
-            </p>
-          </div>
-
-          <div class="hero-right">
-            <img src="img/img.jpg" alt="Person Standing" />
-          </div>
-        </section>
-      </div>
-    </header>
-    <!-- End Header -->
-
-    <!-- Services -->
-    <section id="services">
-      <div class="services main-container">
-        <h3 class="pre-title">Services</h3>
-        <h1 class="section-title services-title">Specialized In</h1>
-
-        <div class="grid-3">
-          <div class="service">
-            <div class="service-icon">
-              <svg
-              
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16.896 10l-4.896-8-4.896 8-7.104-4 3 11v5h18v-5l3-11-7.104 4zm-11.896 10v-2h14v2h-14zm14.2-4h-14.4l-1.612-5.909 4.615 2.598 4.197-6.857 4.197 6.857 4.615-2.598-1.612 5.909z"
-                />
-              </svg>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge" data-scroll-reveal="fade-up">
+                    <span class="hero-badge-dot"></span>
+                    <span>Available for projects</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-line hero-line-1">HAFIZH</span>
+                    <span class="hero-line hero-line-2">NAUFAL <span class="text-gradient">ZAIN</span></span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="hero-terminal">&gt;_</span>
+                    <span class="hero-role" id="typingText">System Analyst</span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                <p class="hero-desc">Mengubah kompleksitas bisnis menjadi solusi teknologi yang elegan. Spesialis dalam analisis kebutuhan sistem, desain arsitektur, dan optimasi proses bisnis.</p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <span>Lihat Portfolio</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                    <a href="cv.pdf" download class="btn btn-cyber">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="12" y1="18" x2="12" y2="12"/>
+                            <polyline points="9 15 12 18 15 15"/>
+                        </svg>
+                        <span>Download CV</span>
+                    </a>
+                </div>
             </div>
-            <h4>UI/UX Design</h4>
-            <p>
-              designing the user interface (UI) and user experience (UX) on a digital product, such as a website or application
-            </p>
-          </div>
-
-          <div class="service">
-            <div class="service-icon">
-              <svg
-                width="24"
-                height="24"
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-              >
-                <path
-                  d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12m2.557 16h-5.115c.546 2.46 1.441 4.114 2.558 5.744 1.194-1.741 2.041-3.41 2.557-5.744m-7.157 0h-4.567c1.236 2.825 3.704 4.972 6.755 5.716-1.048-1.733-1.783-3.658-2.188-5.716m13.767 0h-4.567c-.391 1.988-1.095 3.887-2.175 5.694 3.012-.763 5.517-2.895 6.742-5.694m-14.005-6h-4.962c-.267 1.313-.267 2.685 0 4h4.915c-.119-1.329-.101-2.672.047-4m7.661 0h-5.647c-.165 1.326-.185 2.672-.053 4h5.753c.133-1.328.111-2.673-.053-4m6.977 0h-4.963c.148 1.328.166 2.671.048 4h4.915c.26-1.285.273-2.648 0-4m-12.156-7.729c-3.077.732-5.567 2.886-6.811 5.729h4.653c.435-2.042 1.178-3.985 2.158-5.729m2.355-.048c-1.089 1.77-1.91 3.453-2.463 5.777h4.927c-.534-2.246-1.337-3.948-2.464-5.777m2.368.069c1.013 1.812 1.733 3.76 2.146 5.708h4.654c-1.232-2.816-3.762-4.958-6.8-5.708"
-                />
-              </svg>
+            <div class="hero-visual">
+                <div class="hero-orbit">
+                    <div class="orbit-ring orbit-ring-1"></div>
+                    <div class="orbit-ring orbit-ring-2"></div>
+                    <div class="orbit-ring orbit-ring-3"></div>
+                    <div class="orbit-core">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
-            <h4>Web Development</h4>
-            <p>
-              able to build and maintain websites. then involves various things,
-               from creating an attractive website appearance to ensuring the website functions smoothly.
-            </p>
-          </div>
         </div>
-      </div>
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-indicator-line"></div>
+        </div>
+        <div class="hero-metrics">
+            <div class="hero-metric">
+                <span class="metric-value">30+</span>
+                <span class="metric-label">Projects</span>
+            </div>
+            <div class="hero-metric-divider"></div>
+            <div class="hero-metric">
+                <span class="metric-value">5+</span>
+                <span class="metric-label">Years</span>
+            </div>
+            <div class="hero-metric-divider"></div>
+            <div class="hero-metric">
+                <span class="metric-value">15+</span>
+                <span class="metric-label">Clients</span>
+            </div>
+        </div>
     </section>
-    <!-- End Services -->
 
-    <!-- Portfolios -->
-    <section id="portfolios">
-      <div class="portfolios main-container">
-        <h3 class="pre-title">My Works</h3>
-        <h1 class="section-title">Featured Portfolios</h1>
-
-        <div class="grid-3">
-          <!-- Portfolio 1 -->
-          <div class="portfolio">
-            <div class="portfolio-cover">
-              <img
-                src="./img/portfolio/p1.jpg.png"
-                alt="Portfolio 1"
-              />
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-image-col" data-scroll-reveal="fade-right">
+                    <div class="about-image-frame">
+                        <img src="pict/profile.jpg" alt="Hafizh Naufal Zain" class="about-profile-img">
+                        <div class="about-image-border"></div>
+                        <div class="about-image-scanline"></div>
+                    </div>
+                    <div class="about-badge about-badge-1">
+                        <span class="about-badge-number">5+</span>
+                        <span class="about-badge-label">Tahun<br>Pengalaman</span>
+                    </div>
+                    <div class="about-float-tag about-float-tag-1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                        <span>System Analyst</span>
+                    </div>
+                </div>
+                <div class="about-content-col" data-scroll-reveal="fade-left">
+                    <span class="section-label">
+                        <span class="label-line"></span>
+                        TENTANG SAYA
+                    </span>
+                    <h2 class="section-title">Membangun <span class="text-gradient">Solusi Digital</span> yang Bermakna</h2>
+                    <p class="about-text">Saya adalah seorang <strong>System Analyst</strong> dengan passion mendalam dalam menganalisis dan merancang solusi teknologi yang efektif. Dengan latar belakang yang kuat dalam pemahaman proses bisnis dan teknologi informasi, saya menjembatani gap antara kebutuhan bisnis dan implementasi teknis.</p>
+                    <p class="about-text">Keahlian utama saya terletak pada kemampuan untuk memahami kebutuhan stakeholder, mendokumentasikan requirement dengan detail, dan mendesain arsitektur sistem yang scalable serta maintainable.</p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="about-stat-number" data-target="30">0</span><span class="about-stat-plus">+</span>
+                            <span class="about-stat-label">Project Selesai</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number" data-target="15">0</span><span class="about-stat-plus">+</span>
+                            <span class="about-stat-label">Client Puas</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number" data-target="10">0</span><span class="about-stat-plus">+</span>
+                            <span class="about-stat-label">Industri</span>
+                        </div>
+                    </div>
+                    <div class="about-info-row">
+                        <div class="about-info-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Indonesia</span>
+                        </div>
+                        <div class="about-info-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <span>Open to Work</span>
+                        </div>
+                        <div class="about-info-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <span>hafizh@email.com</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="portfolio-info">
-              <div class="portfolio-title">
-                <h4>Mobile Website</h4>
-                <a href="https://www.figma.com/proto/82Sx6N2iZ2EHjM3mgO3itE/Untitled?page-id=0%3A1&type=design&node-id=10-282&t=GoO2qT7QfhcK532k-0&scaling=scale-down&starting-point-node-id=10%3A282" class="portfolio-link">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 17c2.269-9.881 11-11.667 11-11.667v-3.333l7 6.637-7 6.696v-3.333s-6.17-.171-11 5zm12 .145v2.855h-16v-12h6.598c.768-.787 1.561-1.449 2.339-2h-10.937v16h20v-6.769l-2 1.914z"
-                    />
-                  </svg>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header-center" data-scroll-reveal="fade-up">
+                <span class="section-label">
+                    <span class="label-line"></span>
+                    KEAHLIAN
+                </span>
+                <h2 class="section-title">Tools & Teknologi yang <span class="text-gradient">Saya Kuasai</span></h2>
+                <p class="section-desc">Teknologi dan metodologi yang saya gunakan untuk menghadirkan solusi terbaik</p>
+            </div>
+            <div class="skills-grid">
+                <!-- Analysis & Design -->
+                <div class="skill-card" data-scroll-reveal="fade-up">
+                    <div class="skill-card-glow"></div>
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Analysis & Design</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Requirements Engineering</span>
+                        <span class="skill-tag">Business Process Modeling</span>
+                        <span class="skill-tag">UML / System Architecture</span>
+                        <span class="skill-tag">Data Flow & ERD Design</span>
+                        <span class="skill-tag">Use Case Analysis</span>
+                        <span class="skill-tag">Wireframing</span>
+                    </div>
+                </div>
+
+                <!-- Technical Knowledge -->
+                <div class="skill-card" data-scroll-reveal="fade-up">
+                    <div class="skill-card-glow"></div>
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3>Technical Knowledge</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL & Database Design</span>
+                        <span class="skill-tag">API Design & Documentation</span>
+                        <span class="skill-tag">Agile / Scrum Methodology</span>
+                        <span class="skill-tag">Testing & QA Strategy</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">CI/CD Pipeline</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Platforms -->
+                <div class="skill-card" data-scroll-reveal="fade-up">
+                    <div class="skill-card-glow"></div>
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <h3>Tools & Platforms</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">Confluence</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Draw.io</span>
+                        <span class="skill-tag">Visio</span>
+                        <span class="skill-tag">Trello</span>
+                        <span class="skill-tag">Notion</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Swagger</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skill-card" data-scroll-reveal="fade-up">
+                    <div class="skill-card-glow"></div>
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Stakeholder Management</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">Documentation</span>
+                        <span class="skill-tag">Presentation</span>
+                        <span class="skill-tag">Negotiation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header-center" data-scroll-reveal="fade-up">
+                <span class="section-label">
+                    <span class="label-line"></span>
+                    PORTFOLIO
+                </span>
+                <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+                <p class="section-desc">Beberapa project terbaik yang telah saya kerjakan</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Project 1 - Large -->
+                <div class="portfolio-item portfolio-large" data-scroll-reveal="fade-up">
+                    <div class="portfolio-image">
+                        <img src="pict/project-1.jpg" alt="Enterprise Resource Planning System">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <span class="portfolio-category">Enterprise • ERP</span>
+                                <h3 class="portfolio-title">Enterprise Resource Planning System</h3>
+                                <p class="portfolio-desc">Analisis dan perancangan sistem ERP terintegrasi untuk perusahaan manufaktur dengan 500+ karyawan.</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link" target="_blank" rel="noopener">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M15 3h6v6M14 10l6.1-6.1M10 5H5a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-5"/>
+                                        </svg>
+                                        <span>Live Website</span>
+                                    </a>
+                                    <a href="#" class="portfolio-link" target="_blank" rel="noopener">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M5 5.5A3.5 3.5 0 018.5 2H12v7H8.5A3.5 3.5 0 015 5.5zM12 2h3.5a3.5 3.5 0 010 7H12V2zm0 12.5a3.5 3.5 0 117 0 3.5 3.5 0 01-7 0zM5 19.5A3.5 3.5 0 018.5 16H12v3.5a3.5 3.5 0 01-7 0zM5 12.5A3.5 3.5 0 018.5 9H12v7H8.5A3.5 3.5 0 015 12.5z"/>
+                                        </svg>
+                                        <span>Figma</span>
+                                    </a>
+                                </div>
+                                <div class="portfolio-tech-tags">
+                                    <span>UML</span>
+                                    <span>BPMN</span>
+                                    <span>SQL Server</span>
+                                    <span>Jira</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-scroll-reveal="fade-up">
+                    <div class="portfolio-image portfolio-gradient-1">
+                        <div class="portfolio-placeholder-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <span class="portfolio-category">Fintech • Mobile</span>
+                                <h3 class="portfolio-title">Digital Payment Platform</h3>
+                                <p class="portfolio-desc">Perancangan sistem pembayaran digital dengan fitur e-wallet, transfer, dan pembayaran tagihan.</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link" target="_blank" rel="noopener">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M15 3h6v6M14 10l6.1-6.1M10 5H5a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-5"/>
+                                        </svg>
+                                        <span>Live Website</span>
+                                    </a>
+                                </div>
+                                <div class="portfolio-tech-tags">
+                                    <span>Figma</span>
+                                    <span>REST API</span>
+                                    <span>PostgreSQL</span>
+                                    <span>Swagger</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-scroll-reveal="fade-up">
+                    <div class="portfolio-image portfolio-gradient-2">
+                        <div class="portfolio-placeholder-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <span class="portfolio-category">Healthcare • Web App</span>
+                                <h3 class="portfolio-title">Hospital Management System</h3>
+                                <p class="portfolio-desc">Sistem manajemen rumah sakit terintegrasi mencakup rekam medis elektronik, penjadwalan, dan billing.</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link" target="_blank" rel="noopener">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M15 3h6v6M14 10l6.1-6.1M10 5H5a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-5"/>
+                                        </svg>
+                                        <span>Live Website</span>
+                                    </a>
+                                </div>
+                                <div class="portfolio-tech-tags">
+                                    <span>Draw.io</span>
+                                    <span>MySQL</span>
+                                    <span>Confluence</span>
+                                    <span>Agile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Large -->
+                <div class="portfolio-item portfolio-large" data-scroll-reveal="fade-up">
+                    <div class="portfolio-image portfolio-gradient-3">
+                        <div class="portfolio-placeholder-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="9" cy="21" r="1"/>
+                                <circle cx="20" cy="21" r="1"/>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <span class="portfolio-category">E-Commerce • Marketplace</span>
+                                <h3 class="portfolio-title">Multi-vendor Marketplace</h3>
+                                <p class="portfolio-desc">Analisis dan desain marketplace multi-vendor dengan fitur manajemen produk, order tracking, dan integrasi payment gateway.</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="portfolio-link" target="_blank" rel="noopener">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M15 3h6v6M14 10l6.1-6.1M10 5H5a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-5"/>
+                                        </svg>
+                                        <span>Live Website</span>
+                                    </a>
+                                </div>
+                                <div class="portfolio-tech-tags">
+                                    <span>Visio</span>
+                                    <span>MongoDB</span>
+                                    <span>Postman</span>
+                                    <span>Scrum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner" id="ctaBanner">
+        <div class="cta-grid-bg"></div>
+        <div class="cta-glow"></div>
+        <div class="container cta-content" data-scroll-reveal="fade-up">
+            <h2 class="cta-title">Mari Berkolaborasi &<br>Wujudkan <span class="text-gradient">Ide Anda</span></h2>
+            <p class="cta-desc">Saya selalu terbuka untuk mendiskusikan project baru dan peluang kolaborasi yang menarik.</p>
+            <div class="cta-actions">
+                <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
+                <a href="cv.pdf" download class="btn btn-cyber">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="12" y1="18" x2="12" y2="12"/>
+                        <polyline points="9 15 12 18 15 15"/>
+                    </svg>
+                    <span>Download CV</span>
                 </a>
-              </div>
-              <div class="portfolio-tags">
-                <div>Figma</div>
-              </div>
-              <p>
-                This project is my college assignment, where I was asked to make a
-                prototype using the UCD method. This is a prototype of the Coffee Shop website
-              </p>
             </div>
-          </div>
-
-          <!-- Portfolio 2 -->
-          <div class="portfolio">
-            <div class="portfolio-cover">
-              <img
-                src="./img/portfolio/p2.jpg.png"
-                alt="Portfolio 1"
-              />
-            </div>
-            <div class="portfolio-info">
-              <div class="portfolio-title">
-                <h4>Website</h4>
-                <a href="https://www.figma.com/proto/aRo3KgrkhMjdL23r65Wj9f/Genta-Gamelan?page-id=0%3A1&type=design&node-id=8-53&t=sUqocL9be5kV0vj5-0&scaling=min-zoom&starting-point-node-id=8%3A53&show-proto-sidebar=1" class="portfolio-link">
-                  <svg
-                    
-
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 17c2.269-9.881 11-11.667 11-11.667v-3.333l7 6.637-7 6.696v-3.333s-6.17-.171-11 5zm12 .145v2.855h-16v-12h6.598c.768-.787 1.561-1.449 2.339-2h-10.937v16h20v-6.769l-2 1.914z"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div class="portfolio-tags">
-                <div>Html</div>
-                <div>CSS</div>
-              </div>
-              <p>
-                This project is a micro project when I took part in an independent study. Which is where I created a website scheduling trash pickup
-              </p>
-            </div>
-          </div>
-
         </div>
-      </div>
     </section>
-    <!-- End Portfolios -->
 
-    <!-- Skills & Education -->
-    <section id="skills">
-      <div class="skills main-container">
-        <h3 class="pre-title">Learning Path</h3>
-        <h1 class="section-title">Skills & Education</h1>
-
-        <div class="skills-grid">
-          <div class="skills-left">
-            <div class="education">
-              <div class="line">
-                <div></div>
-              </div>
-              <div class="education-info">
-                <h4 class="education-title">SDIT Baiturrahman</h4>
-                <p class="education-years">2009 - 2015</p>
-              </div>
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-header-center" data-scroll-reveal="fade-up">
+                <span class="section-label">
+                    <span class="label-line"></span>
+                    PENGALAMAN
+                </span>
+                <h2 class="section-title">Perjalanan <span class="text-gradient">Karier</span></h2>
             </div>
-            <div class="education">
-              <div class="line">
-                <div></div>
-              </div>
-              <div class="education-info">
-                <h4 class="education-title">Ponpes Husnul Khotimah</h4>
-                <p class="education-years">2015 - 2018</p>
-              </div>
+            <div class="timeline">
+                <div class="timeline-item" data-scroll-reveal="fade-up">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-pulse"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Sekarang</div>
+                        <h3 class="timeline-title">Senior System Analyst</h3>
+                        <span class="timeline-company">Tech Innovation Corp</span>
+                        <p class="timeline-desc">Memimpin tim analisis untuk proyek-proyek enterprise berskala besar. Bertanggung jawab atas arsitektur sistem dan quality assurance dari requirement hingga deployment.</p>
+                        <div class="timeline-tags">
+                            <span>Leadership</span>
+                            <span>Enterprise Architecture</span>
+                            <span>Agile</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-scroll-reveal="fade-up">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - 2023</div>
+                        <h3 class="timeline-title">System Analyst</h3>
+                        <span class="timeline-company">Digital Solutions Indonesia</span>
+                        <p class="timeline-desc">Menganalisis kebutuhan klien dan menerjemahkannya menjadi spesifikasi teknis. Berkolaborasi dengan tim development untuk memastikan implementasi sesuai requirement.</p>
+                        <div class="timeline-tags">
+                            <span>Requirements Analysis</span>
+                            <span>Documentation</span>
+                            <span>Scrum</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-scroll-reveal="fade-up">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2021</div>
+                        <h3 class="timeline-title">Junior Business Analyst</h3>
+                        <span class="timeline-company">StartUp Hub</span>
+                        <p class="timeline-desc">Memulai karier di dunia analisis bisnis. Fokus pada pengumpulan requirement, pembuatan dokumentasi, dan pengujian sistem.</p>
+                        <div class="timeline-tags">
+                            <span>Business Analysis</span>
+                            <span>Testing</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-scroll-reveal="fade-up">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2015 - 2019</div>
+                        <h3 class="timeline-title">S1 Sistem Informasi</h3>
+                        <span class="timeline-company">Universitas Teknologi</span>
+                        <p class="timeline-desc">Lulus dengan predikat cumlaude. Aktif di organisasi kampus dan mengikuti berbagai kompetisi IT nasional.</p>
+                        <div class="timeline-tags">
+                            <span>Cumlaude</span>
+                            <span>IT Competition</span>
+                            <span>Research</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="education">
-              <div class="line">
-                <div></div>
-              </div>
-              <div class="education-info">
-                <h4 class="education-title">Sman 100 Jakarta</h4>
-                <p class="education-years">2018 - 2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="skills-right">
-            <p>
-              For 2 years, I have been continuously learning in the field of
-              front-end and back-end 
-              experimenting with new technologies,
-              and here you can see a summary of my skills. Field of front-end
-              and experimenting with new technologies.
-            </p>
-
-            <div class="skills-list">
-              <ul>
-          
-                <li>Java</li>
-                <li>Php</li>
-                <li>HTML</li>
-              </ul>
-
-              <ul>
-                <li>CSS</li>
-                <li>Javascript</li>
-                
-               
-               
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
-    <!-- End Skills & Education  -->
 
-    <!-- Contact -->
-    <section id="contact">
-      <div class="contact main-container">
-        <div class="contact-left">
-          <form
-            action="https://formspree.io/f/xeqwdykj"
-            method="POST"
-            class="contact-form"
-          >
-            <div>
-              <input type="text" placeholder="Name" name="name" />
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-info-col" data-scroll-reveal="fade-right">
+                    <span class="section-label">
+                        <span class="label-line"></span>
+                        KONTAK
+                    </span>
+                    <h2 class="section-title">Mari <span class="text-gradient">Terhubung</span></h2>
+                    <p class="contact-text">Saya selalu terbuka untuk mendiskusikan project baru, ide kreatif, atau peluang untuk menjadi bagian dari visi Anda.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <div class="contact-detail-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="contact-detail-label">Email</span>
+                                <span class="contact-detail-value">hafizh@email.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-detail-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="contact-detail-label">Lokasi</span>
+                                <span class="contact-detail-value">Indonesia</span>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <div class="contact-detail-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="contact-detail-label">Telepon</span>
+                                <span class="contact-detail-value">+62 xxx-xxxx-xxxx</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter/X">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-col" data-scroll-reveal="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Nama Lengkap</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Email Address</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required placeholder=" ">
+                            <label for="subject">Subject</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Pesan Anda</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span>Kirim Pesan</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div>
-              <input type="email" placeholder="Email" name="email" />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                id="message"
-                cols="30"
-                rows="10"
-                placeholder="Message"
-              ></textarea>
-            </div>
-            <div>
-              <button class="btn-submit">Send Message</button>
-            </div>
-          </form>
         </div>
-
-        <div class="contact-right">
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 1c-3.148 0-6 2.553-6 5.702 0 3.148 2.602 6.907 6 12.298 3.398-5.391 6-9.15 6-12.298 0-3.149-2.851-5.702-6-5.702zm0 8c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm12 14h-24l4-8h3.135c.385.641.798 1.309 1.232 2h-3.131l-2 4h17.527l-2-4h-3.131c.435-.691.848-1.359 1.232-2h3.136l4 8z"
-                />
-              </svg>
-            </div>
-            <div class="contact-item-detail">
-              <h4>Address</h4>
-              <p>Karang Satria, Tambun Utara, Jawa Barat</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"
-                />
-              </svg>
-            </div>
-            <div class="contact-item-detail">
-              <h4>Phone</h4>
-              <p>(62) 8561962893</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
-                />
-              </svg>
-            </div>
-            <div class="contact-item-detail">
-              <h4>Email</h4>
-              <p>Hafizhnz@gmail.com</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
-    <!-- End Contact -->
 
-    <!-- Fomter -->
-    <footer>
-      <div class="footer-icons">
-        <a href="#">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-            />
-          </svg>
-        </a>
-
-        <a href="#">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"
-            />
-          </svg>
-        </a>
-
-        <a href="#">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
-            />
-          </svg>
-        </a>
-
-        <a href="#">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-            />
-          </svg>
-        </a>
-      </div>
-      <p>&#169; 2024 All Right Reserve</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-hex">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <span>HNZ</span>
+                </div>
+                <p class="footer-text">Designed & Built with <span class="footer-heart">♥</span> by Hafizh Naufal Zain</p>
+                <p class="footer-copyright">&copy; 2026 All Rights Reserved</p>
+            </div>
+        </div>
     </footer>
-    <!-- End Footer -->
 
-    <script src="main.js"></script>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
